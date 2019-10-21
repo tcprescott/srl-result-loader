@@ -49,7 +49,7 @@ async def load_srl_data(full_load=False):
                                 entrant['race'],
                                 entrant['place'],
                                 entrant['player'],
-                                entrant['time'] if not entrant['place'] == 9998 else None
+                                entrant['time'] if not entrant['place'] in [9998,9999] else None
                             ]
                         )
                 except IntegrityError as e:
