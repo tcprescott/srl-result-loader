@@ -19,7 +19,7 @@ async def load_srl_data(full_load=False):
             r = await get_races(
                 params={
                     'page': page,
-                    'pageSize': 1000 if full_load else 100,
+                    'pageSize': 1000 if full_load else 20,
                     'game': 'alttphacks'
                 }
             )
@@ -54,7 +54,7 @@ async def load_srl_data(full_load=False):
                         )
                 except IntegrityError as e:
                     continue
-            await asyncio.sleep(5)
+            await asyncio.sleep(1)
             page += 1
     except StopIteration:
         print('Halting data load.')
